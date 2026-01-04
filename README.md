@@ -40,7 +40,9 @@ This solution leverages Snowflake Intelligence and Cortex AI capabilities to cre
 5. **No-Code Agent Creation**: Build and deploy the entire solution using Snowflake Intelligence's visual interface without writing application code
 
 
-## Can answer Supply Chain Data Questions (Cortex Analyst - Supply Chain Model):**
+## Can answer Different Questions
+
+**Supply Chain Data Questions (Cortex Analyst - Supply Chain Model):**
 
 * "How many orders did we receive in the last month?"
 * "Which manufacturing plants have low inventory for which raw materials?"
