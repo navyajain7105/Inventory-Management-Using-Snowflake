@@ -17,7 +17,8 @@ Here is a summary of what I have built:
 
 ## The Problem
 
-![Alt text](/images/problem.png "The Problem")
+<img width="1096" height="617" alt="The Problem" src="https://github.com/user-attachments/assets/b8ce12b0-e49e-4aa0-84f7-57b40e4ffc7b" />
+
 
 Supply chain operations managers face daily challenges managing raw material inventory across manufacturing facilities:
 
@@ -28,7 +29,7 @@ Supply chain operations managers face daily challenges managing raw material inv
 
 ## The Solution
 
-![Alt text](/images/solution.png "The Solution")
+<img width="1095" height="615" alt="The Solution" src="https://github.com/user-attachments/assets/6ea48112-d5d6-4316-84fd-da10477601a7" />
 
 This solution leverages Snowflake Intelligence and Cortex AI capabilities to create an intelligent assistant that:
 
@@ -39,7 +40,7 @@ This solution leverages Snowflake Intelligence and Cortex AI capabilities to cre
 5. **No-Code Agent Creation**: Build and deploy the entire solution using Snowflake Intelligence's visual interface without writing application code
 
 
-**Can answer Supply Chain Data Questions (Cortex Analyst - Supply Chain Model):**
+##Can answer Supply Chain Data Questions (Cortex Analyst - Supply Chain Model):**
 
 * "How many orders did we receive in the last month?"
 * "Which manufacturing plants have low inventory for which raw materials?"
