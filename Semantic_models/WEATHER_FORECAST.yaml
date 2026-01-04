@@ -1,0 +1,449 @@
+name: WEATHER_FORECAST
+description: This semantic view contains weather forecast data for cities around the world in a daily table, hourly table, and six-hour increment table.
+tables:
+  - name: CITY_DAILY_IMPERIAL
+    base_table:
+      database: SUPPLY_CHAIN_ASSISTANT_DB
+      schema: WEATHER
+      table: CITY_DAILY_IMPERIAL
+    dimensions:
+      - name: ADMIN_CODE
+        description: Administrative code.
+        expr: ADMIN_CODE
+        data_type: VARCHAR(10)
+        sample_values:
+          - WB
+          - NY
+          - '11'
+      - name: CITY_NAME
+        description: The name of the city or city district.
+        expr: CITY_NAME
+        data_type: VARCHAR(100)
+        sample_values:
+          - Riyadh
+          - Osaka-shi
+          - Tokyo
+      - name: COUNTRY_CODE
+        description: The country code.
+        expr: COUNTRY_CODE
+        data_type: VARCHAR(2)
+        sample_values:
+          - SA
+          - CO
+          - US
+      - name: DAY_FLAG
+        description: Flag indicating the forecast is for Day or Night.
+        expr: DAY_FLAG
+        data_type: VARCHAR(1)
+        sample_values:
+          - 'N'
+          - D
+    time_dimensions:
+      - name: DATE
+        description: The date of the weather forecast.
+        expr: DATE
+        data_type: DATE
+        sample_values:
+          - '2022-11-05'
+    facts:
+      - name: ALLERGY_GRASS_24HR_MAX
+        description: The maximum 24-hour allergy level for grass in the area.
+        expr: ALLERGY_GRASS_24HR_MAX
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '0'
+          - '21'
+      - name: ALLERGY_MOLD_24HR_MAX
+        description: The maximum amount of mold or fungi spores in the air over a 24-hour period.
+        expr: ALLERGY_MOLD_24HR_MAX
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '149'
+          - '3575'
+          - '399'
+      - name: ALLERGY_RAGWEED_24HR_MAX
+        description: The maximum 24-hour allergy level for ragweed in the area.
+        expr: ALLERGY_RAGWEED_24HR_MAX
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '6'
+          - '0'
+      - name: ALLERGY_TREE_24HR_MAX
+        description: The maximum 24-hour allergy tree pollen count.
+        expr: ALLERGY_TREE_24HR_MAX
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '0'
+      - name: CLOUD_COVER_AVG
+        description: The average percentage of cloud cover in the sky.
+        expr: CLOUD_COVER_AVG
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '36'
+          - '91'
+          - '93'
+      - name: EVAPOTRANSPIRATION_LWE_TOTAL
+        description: Evapotranspiration loss due to total water evaporation.
+        expr: EVAPOTRANSPIRATION_LWE_TOTAL
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '0.07'
+          - '0.01'
+          - '0.02'
+      - name: HAS_PRECIPITATION
+        description: Whether precipitation is expected.
+        expr: HAS_PRECIPITATION
+        data_type: BOOLEAN
+        access_modifier: public_access
+        sample_values:
+          - 'TRUE'
+          - 'FALSE'
+      - name: ICE_LWE_TOTAL
+        description: The total amount of ice accumulation in inches.
+        expr: ICE_LWE_TOTAL
+        data_type: NUMBER(8,5)
+        access_modifier: public_access
+        sample_values:
+          - '0.00000'
+      - name: ICE_PROBABILITY
+        description: The probability of ice formation.
+        expr: ICE_PROBABILITY
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '0'
+      - name: INDEX_AIR_QUALITY_24HR_MAX
+        description: The 24-hour maximum air quality index.
+        expr: INDEX_AIR_QUALITY_24HR_MAX
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '43'
+          - '0'
+          - '62'
+      - name: INDEX_UV_24HR_MAX
+        description: The maximum amount of ultraviolet radiation in a 24-hour period.
+        expr: INDEX_UV_24HR_MAX
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '1'
+          - '3'
+          - '5'
+      - name: LATITUDE
+        description: The latitude of a city or location.
+        expr: LATITUDE
+        data_type: NUMBER(7,5)
+        access_modifier: public_access
+        sample_values:
+          - '35.68301'
+          - '34.66670'
+          - '24.64039'
+      - name: LONGITUDE
+        description: The longitude of a city.
+        expr: LONGITUDE
+        data_type: NUMBER(8,5)
+        access_modifier: public_access
+        sample_values:
+          - '72.87849'
+          - '-74.07677'
+          - '46.75330'
+      - name: MINUTES_OF_ICE_TOTAL
+        description: Minutes of ice total.
+        expr: MINUTES_OF_ICE_TOTAL
+        data_type: NUMBER(6,0)
+        access_modifier: public_access
+        sample_values:
+          - '0'
+      - name: MINUTES_OF_PRECIPITATION_TOTAL
+        description: The total minutes of precipitation total.
+        expr: MINUTES_OF_PRECIPITATION_TOTAL
+        data_type: NUMBER(6,0)
+        access_modifier: public_access
+        sample_values:
+          - '90'
+          - '180'
+          - '120'
+      - name: MINUTES_OF_RAIN_TOTAL
+        description: The total minutes of rain in a given day.
+        expr: MINUTES_OF_RAIN_TOTAL
+        data_type: NUMBER(6,0)
+        access_modifier: public_access
+        sample_values:
+          - '90'
+          - '120'
+          - '180'
+      - name: MINUTES_OF_SNOW_TOTAL
+        description: The total minutes of snowfall.
+        expr: MINUTES_OF_SNOW_TOTAL
+        data_type: NUMBER(6,0)
+        access_modifier: public_access
+        sample_values:
+          - '0'
+      - name: MINUTES_OF_SUN_24HR_TOTAL
+        description: The total number of minutes of sunshine in a 24-hour period.
+        expr: MINUTES_OF_SUN_24HR_TOTAL
+        data_type: NUMBER(7,0)
+        access_modifier: public_access
+        sample_values:
+          - '468'
+          - '162'
+          - '492'
+      - name: PHRASE_LONG
+        description: Weather forecast description.
+        expr: PHRASE_LONG
+        data_type: VARCHAR(250)
+        access_modifier: public_access
+        sample_values:
+          - Cloudy
+          - Mainly clear and chilly
+          - Partly sunny
+      - name: PHRASE_SHORT
+        description: Weather forecast summary in a brief phrase.
+        expr: PHRASE_SHORT
+        data_type: VARCHAR(30)
+        access_modifier: public_access
+        sample_values:
+          - Mainly clear and chilly
+          - Mostly sunny and hot
+          - Cloudy with a touch of rain
+      - name: PRECIPITATION_INTENSITY_MAX
+        description: The maximum intensity of precipitation.
+        expr: PRECIPITATION_INTENSITY_MAX
+        data_type: VARCHAR(50)
+        access_modifier: public_access
+        sample_values:
+          - Heavy
+          - Moderate
+      - name: PRECIPITATION_LWE_TOTAL
+        description: Precipitation in liquid units, measured in inches.
+        expr: PRECIPITATION_LWE_TOTAL
+        data_type: NUMBER(8,5)
+        access_modifier: public_access
+        sample_values:
+          - '0.16800'
+          - '0.00000'
+          - '0.04100'
+      - name: PRECIPITATION_PROBABILITY
+        description: The probability of precipitation.
+        expr: PRECIPITATION_PROBABILITY
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '1'
+          - '10'
+          - '23'
+      - name: PRECIPITATION_TYPE_DESC_PREDOMINANT
+        description: The predominant type of precipitation.
+        expr: PRECIPITATION_TYPE_DESC_PREDOMINANT
+        data_type: VARCHAR(50)
+        access_modifier: public_access
+        sample_values:
+          - Rain
+      - name: RAIN_LWE_TOTAL
+        description: The total amount of rainfall in inches.
+        expr: RAIN_LWE_TOTAL
+        data_type: NUMBER(8,5)
+        access_modifier: public_access
+        sample_values:
+          - '0.14600'
+          - '0.01900'
+          - '0.12000'
+      - name: RAIN_PROBABILITY
+        description: The probability of rain.
+        expr: RAIN_PROBABILITY
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '23'
+          - '10'
+          - '0'
+      - name: SNOW_PROBABILITY
+        description: The probability of snowfall in percentage.
+        expr: SNOW_PROBABILITY
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '4'
+          - '8'
+          - '0'
+      - name: SNOW_TOTAL
+        description: The total amount of snowfall in inches.
+        expr: SNOW_TOTAL
+        data_type: NUMBER(8,5)
+        access_modifier: public_access
+        sample_values:
+          - '0.00000'
+      - name: SOLAR_IRRADIANCE_TOTAL
+        description: The total amount of solar radiation received by the location.
+        expr: SOLAR_IRRADIANCE_TOTAL
+        data_type: NUMBER(7,2)
+        access_modifier: public_access
+        sample_values:
+          - '6673.80'
+          - '2476.40'
+          - '342.70'
+      - name: TEMPERATURE_AVG
+        description: The average temperature in degrees Fahrenheit.
+        expr: TEMPERATURE_AVG
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '86.95'
+          - '74.83'
+          - '88.08'
+      - name: TEMPERATURE_MAX
+        description: The maximum temperature in degrees Fahrenheit.
+        expr: TEMPERATURE_MAX
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '67.44'
+          - '59.00'
+          - '77.15'
+      - name: TEMPERATURE_MIN
+        description: The minimum temperature in degrees Fahrenheit.
+        expr: TEMPERATURE_MIN
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '62.00'
+          - '74.09'
+          - '53.70'
+      - name: TEMPERATURE_REALFEEL_AVG
+        description: The average real-feel temperature in degrees Fahrenheit.
+        expr: TEMPERATURE_REALFEEL_AVG
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '32.71'
+          - '73.89'
+          - '71.58'
+      - name: TEMPERATURE_REALFEEL_MAX
+        description: The maximum real-feel temperature in degrees Fahrenheit.
+        expr: TEMPERATURE_REALFEEL_MAX
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '65.30'
+          - '72.80'
+          - '32.99'
+      - name: TEMPERATURE_REALFEEL_MIN
+        description: The minimum real-feel temperature in degrees Fahrenheit.
+        expr: TEMPERATURE_REALFEEL_MIN
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '78.26'
+          - '71.85'
+          - '61.83'
+      - name: TEMPERATURE_REALFEEL_SHADE_AVG
+        description: The average real-feel temperature in degrees in degrees Fahrenheit.
+        expr: TEMPERATURE_REALFEEL_SHADE_AVG
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '61.96'
+          - '56.29'
+          - '71.37'
+      - name: TEMPERATURE_REALFEEL_SHADE_MAX
+        description: The maximum real-feel temperature in degrees Fahrenheit.
+        expr: TEMPERATURE_REALFEEL_SHADE_MAX
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '56.51'
+          - '61.98'
+          - '50.80'
+      - name: TEMPERATURE_REALFEEL_SHADE_MIN
+        description: The minimum real-feel temperature in the shade in degrees Fahrenheit.
+        expr: TEMPERATURE_REALFEEL_SHADE_MIN
+        data_type: NUMBER(5,2)
+        access_modifier: public_access
+        sample_values:
+          - '61.73'
+          - '78.26'
+          - '71.85'
+      - name: THUNDERSTORM_PROBABILITY
+        description: The probability of thunderstorms.
+        expr: THUNDERSTORM_PROBABILITY
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '4'
+          - '2'
+          - '26'
+      - name: WEATHER_ICON
+        description: The type of weather icon used to represent the forecast.
+        expr: WEATHER_ICON
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '4'
+          - '5'
+          - '3'
+      - name: WIND_DIRECTION_AVG
+        description: The average direction of the wind.
+        expr: WIND_DIRECTION_AVG
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '46'
+          - '131'
+          - '65'
+      - name: WIND_GUST_DIRECTION_AVG
+        description: Wind gust direction averages.
+        expr: WIND_GUST_DIRECTION_AVG
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '48'
+          - '30'
+          - '191'
+      - name: WIND_GUST_MAX
+        description: The maximum wind gust speed in MPH.
+        expr: WIND_GUST_MAX
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '13'
+          - '23'
+          - '17'
+      - name: WIND_SPEED_AVG
+        description: The average wind speed in MPH.
+        expr: WIND_SPEED_AVG
+        data_type: NUMBER(38,0)
+        access_modifier: public_access
+        sample_values:
+          - '8'
+          - '9'
+          - '5'
+verified_queries:
+  - name: What are all the locations we have weather for?
+    question: What are all the locations we have weather for?
+    sql: |-
+      SELECT
+        DISTINCT city_name,
+        admin_code,
+        country_code,
+        MIN(date) AS earliest_date,
+        MAX(date) AS latest_date
+      FROM
+        city_daily_imperial
+      GROUP BY
+        city_name,
+        admin_code,
+        country_code
+      ORDER BY
+        city_name,
+        admin_code,
+        country_code
+    use_as_onboarding_question: false
+    verified_by: Reid Lewis
+    verified_at: 1759763221
